@@ -1,0 +1,62 @@
+<p>form works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parant Child Reltion</title>
+</head>
+<body>
+
+  <form #templateForm="ngForm">
+  <div>
+    
+    <label>First Name:</label><br>
+    <input type="text" name="fname" [(ngModel)]="formData.fname"><br>
+    <span style="color: red;" *ngIf="fNameValid">Please Enter The fName</span><br>
+    <label>Last Name:</label><br>
+    <input type="text" name="lname" [(ngModel)]="formData.lname"><br>
+    <span style="color: red;" *ngIf="lNameValid">Please Enter The lName</span><br><br>
+
+   <select name="select" [(ngModel)]="formData.select">
+      <option value="1" >Pakistan</option>
+      <option value="2" selected>Punjab</option>
+      <option value="3">KPK</option>
+      <option value="4">Sindh</option>
+      <option value="5">Balochistan</option>
+      
+      
+    </select><br>
+    <span style="color: red;" *ngIf="selectValid">Please Choose the below Option</span><br>
+
+    <label>Select the religion<br>
+     <span style="color: red;" *ngIf="religionValid">Please select the religion</span><br>
+      <input type="radio" value="Muslim" name="religion" [(ngModel)]="formData.religion">Muslim<br>
+      <input type="Radio" value="Non-Muslimn" name="religion" [(ngModel)]="formData.religion">Non-Muslim<br>
+    </label><br>
+
+    <input type="date" name="date" [(ngModel)]="formData.date"><br>
+    <span style="color: red;" *ngIf="dateValid">Please choose the date</span><br>
+
+    <label>Select the Subject<br>
+    <span style="color: red;" *ngIf="boxValid">Please choose the box</span><br>
+    <input type="checkbox" name="box" [(ngModel)]="formData.box">Math
+    <br>
+    <input type="checkbox" name="box" [(ngModel)]="formData.box">Eng
+    <br>
+    <input type="checkbox" name="box" [(ngModel)]="formData.box"> Phy
+   <br>
+    <input type="checkbox" name="box" [(ngModel)]="formData.box">computer
+    </label><br><br>
+
+    <button (click)="submit()">Submit</button>
+    <!-- <button (click)="negateToTable()">Submit</button> -->
+    <!-- <button (click)="navigateToTable()">Submit</button> -->
+    <!-- Second way -->
+    <!-- <button routerLink="/app-table" [queryParams]="formData">Submit</button> -->
+  </div>
+  </form>
+  
+</body>
+</html>
